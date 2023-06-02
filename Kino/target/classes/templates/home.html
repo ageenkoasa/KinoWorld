@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="icon"
+          href="https://yt3.ggpht.com/ytc/AMLnZu-0bY4NaExphby-ARMZtEXnhrE0VVrzYqo2H1I=s900-c-k-c0x00ffffff-no-rj"
+          type="image/jpeg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="~{blocks/header :: header}"></header>
+
+<div class="container mt-5">
+    <p th:text="'Привет, это ' + ${title} + '!'"/>
+</div>
+
+<!--<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>-->
+
+</body>
+</html>

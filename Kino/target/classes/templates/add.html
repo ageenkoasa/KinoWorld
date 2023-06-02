@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>New Movie</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="icon"
+        href="https://yt3.ggpht.com/ytc/AMLnZu-0bY4NaExphby-ARMZtEXnhrE0VVrzYqo2H1I=s900-c-k-c0x00ffffff-no-rj"
+        type="image/jpeg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="~{blocks/header :: header}"></header>
+
+<div class="container mt-5 mb-5">
+  <h1>Добавление фильма</h1>
+  <form action="/catalog/add" method="POST">
+    <input type="text" name="title" placeholder="Название" class="form-control"><br>
+    <input type="text" name="release_year" placeholder="Год" class="form-control"><br>
+    <input type="text" name="country" placeholder="Страна" class="form-control"><br>
+    <input type="text" name="director" placeholder="Режиссер" class="form-control"><br>
+    <input type="text" name="genre" placeholder="Жанр" class="form-control"><br>
+    <input type="text" name="rating" placeholder="Рейтинг" class="form-control"><br>
+    <input type="text" name="duration_minutes" placeholder="Длительность" class="form-control"><br>
+    <textarea name="description" placeholder="Описание" class="form-control"></textarea><br>
+    <button type="submit" class="btn btn-success">Добавить</button>
+  </form>
+</div>
+
+</body>
+</html>

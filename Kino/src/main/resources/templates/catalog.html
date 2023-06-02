@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Catalog Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="icon"
+          href="https://yt3.ggpht.com/ytc/AMLnZu-0bY4NaExphby-ARMZtEXnhrE0VVrzYqo2H1I=s900-c-k-c0x00ffffff-no-rj"
+          type="image/jpeg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="~{blocks/header :: header}"></header>
+<div class="container mt-5">
+    <h1>Фильмы, сериалы...</h1>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div th:each="m : ${movies}" class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <h4 th:text="${m.title}" class="my-0 font-weight-normal"/>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li th:text="${m.release_year}"/>
+                                <li th:text="${m.country}"/>
+                                <li th:text="${m.genre}"/>
+                                <li th:text="${m.rating} + ' rating'"/>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a th:href="'/catalog/' + ${m.id}" class="btn btn-outline-secondary">Смотреть...</a>
+                                </div>
+                                <small th:text="${m.duration_minutes}  + ' min'" class="text-muted"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

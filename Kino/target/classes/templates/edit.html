@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Movie</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="icon"
+          href="https://yt3.ggpht.com/ytc/AMLnZu-0bY4NaExphby-ARMZtEXnhrE0VVrzYqo2H1I=s900-c-k-c0x00ffffff-no-rj"
+          type="image/jpeg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="~{blocks/header :: header}"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование фильма</h1>
+    <div th:each="m : ${movie}">
+        <form method="POST">
+            <input type="text" th:value="${m.title}" name="title" placeholder="Название" class="form-control"><br>
+            <input type="text" th:value="${m.release_year}" name="release_year" placeholder="Год" class="form-control"><br>
+            <input type="text" th:value="${m.country}" name="country" placeholder="Страна" class="form-control"><br>
+            <input type="text" th:value="${m.director}" name="director" placeholder="Режиссер" class="form-control"><br>
+            <input type="text" th:value="${m.genre}" name="genre" placeholder="Жанр" class="form-control"><br>
+            <input type="text" th:value="${m.rating}" name="rating" placeholder="Рейтинг" class="form-control"><br>
+            <input type="text" th:value="${m.duration_minutes}" name="duration_minutes" placeholder="Длительность" class="form-control"><br>
+            <textarea name="description" placeholder="Описание" class="form-control" th:text="${m.description}"/><br>
+            <button type="submit" class="btn btn-success">Редактировать</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

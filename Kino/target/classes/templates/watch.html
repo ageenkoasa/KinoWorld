@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="icon"
+          href="https://yt3.ggpht.com/ytc/AMLnZu-0bY4NaExphby-ARMZtEXnhrE0VVrzYqo2H1I=s900-c-k-c0x00ffffff-no-rj"
+          type="image/jpeg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="~{blocks/header :: header}"></header>
+<div class="container mt-5">
+    <div th:each="m : ${movie}" class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <h4 th:text="${m.title}" class="my-0 font-weight-normal"/>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li th:text="${m.release_year}"/>
+                    <li th:text="${m.director}"/>
+                    <li th:text="${m.country}"/>
+                    <li th:text="${m.genre}"/>
+                </ul>
+                <span th:text="${m.description}"/></div>
+            </div>
+        <div class="btn-group">
+            <a th:href="'/catalog/' + ${m.id} +'/edit'" class="btn btn-outline-secondary">Редактировать</a>
+            <form th:action="'/catalog/' + ${m.id} + '/remove'" method="POST">
+                <button class="btn btn-outline-secondary" type="submit">Удалить</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
